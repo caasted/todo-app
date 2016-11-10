@@ -21,6 +21,7 @@ var app = app || {};
 			'dblclick label': 'edit',
 			'click .edit-btn': 'edit', 
 			'click .destroy': 'clear',
+			'click .priority-btn': 'toggleImportant',
 			'keypress .edit': 'updateOnEnter',
 			'keydown .edit': 'revertOnEscape',
 			'blur .edit': 'close'
@@ -70,6 +71,11 @@ var app = app || {};
 		toggleCompleted: function () {
 			this.model.toggle();
 		},
+
+		// Toggle the `"priority"` state of the model.
+		toggleImportant: function () {
+			this.model.togglePriority();
+		}, 
 
 		// Switch this view into `"editing"` mode, displaying the input field.
 		edit: function () {
